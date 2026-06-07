@@ -12,32 +12,42 @@ Quanlycanho/
 │   └── nhanvienbosung.EAP             <-- Bản vẽ sơ đồ nhân viên bổ sung
 │
 ├── docs/
-│   └── NHOM2_QUANLYCANHO_SD2011_GD2.docx <-- Báo cáo / Tài liệu dự án Giai đoạn 2
+│   ├── NHOM2_QUANLYCANHO_SD2011_GD2.docx <-- Báo cáo / Tài liệu dự án Giai đoạn 2
+│   └── lab8.docx                         <-- Tài liệu hoặc bài tập Lab 8 mới thêm
 │
 └── src/
-    ├── backend/                       <-- Mã nguồn xử lý Logic / API
+    ├── backend/                       <-- Node.js + Express API
     │   ├── config/
-    │   │   └── db.js                  <-- Kết nối cơ sở dữ liệu
+    │   │   └── db.js                  <-- Kết nối MSSQL
     │   ├── routes/
-    │   │   ├── auth.js                <-- Xử lý Đăng nhập / Đăng ký
-    │   │   ├── properties.js          <-- Quản lý căn hộ
-    │   │   ├── bookings.js            <-- Quản lý đặt phòng
-    │   │   └── users.js               <-- Quản lý người dùng
-    │   ├── server.js                  <-- File chạy chính của Backend
+    │   │   ├── auth.js                <-- Đăng nhập / Đăng ký / Session
+    │   │   ├── properties.js          <-- Tìm kiếm & chi tiết căn hộ
+    │   │   ├── bookings.js            <-- Đặt phòng
+    │   │   └── users.js               <-- Quản lý users (admin)
+    │   ├── server.js                  <-- Entry point Express
     │   └── package.json
     │
-    └── frontend/                      <-- Giao diện người dùng (UI)
+    └── frontend/                      <-- React App
         ├── public/
         │   └── index.html
         └── src/
             ├── components/            <-- Các thành phần giao diện dùng chung
-            │   ├── Header.jsx
-            │   ├── Footer.jsx
-            │   ├── SearchBox.jsx
-            │   └── PropertyCard.jsx
+            │   ├── Header.jsx         <-- Header + Nav + User dropdown
+            │   ├── Header.css
+            │   ├── Footer.jsx         <-- Footer 5 cột
+            │   ├── Footer.css
+            │   ├── SearchBox.jsx      <-- Ô tìm kiếm (city + date + guests)
+            │   ├── SearchBox.css
+            │   ├── PropertyCard.jsx   <-- Card căn hộ (grid/list)
+            │   └── PropertyCard.css
             ├── pages/                 <-- Các trang giao diện lớn
-            │   ├── HomePage.jsx
-            │   ├── SearchPage.jsx
-            │   └── LoginPage.jsx
-            ├── App.js
-            └── index.js
+            │   ├── HomePage.jsx       <-- Trang chủ (hero + featured)
+            │   ├── HomePage.css
+            │   ├── SearchPage.jsx     <-- Trang tìm kiếm + bộ lọc
+            │   ├── SearchPage.css
+            │   ├── LoginPage.jsx      <-- Đăng nhập + Đăng ký
+            │   └── LoginPage.css
+            ├── App.js                 <-- Router + AuthContext
+            ├── index.js
+            ├── index.css              <-- CSS variables (màu Agoda)
+            └── package.json
